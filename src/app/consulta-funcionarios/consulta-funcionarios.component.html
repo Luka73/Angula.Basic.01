@@ -1,0 +1,50 @@
+<h4>Consulta de Funcionários</h4>
+<br>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Salário</th>
+            <th>Data de Admissão</th>
+            <th>Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of funcionarios; let i = index">
+            <td>{{item.IdFuncionario}}</td>
+            <td>{{item.Nome}}</td>
+            <td>{{item.Cpf}}</td>
+            <td>{{item.Salario | currency : 'R$'}}</td>
+            <td>{{item.DataAdmissao | date: 'dd/MM/yyyy'}}</td>
+            <td width="200">
+                <button class="btn btn-primary btn-sm mr-2" 
+                data-target="#janelaedicao" data-toggle="modal">
+                    Alterar
+                </button>
+                <button class="btn btn-danger btn-sm"
+                data-target="#janelaexclusao" data-toggle="modal">
+                    Excluir
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="6">Quantidade de registros: {{ funcionarios.length }}</td>
+        </tr>
+    </tfoot>
+</table>
+
+<div id="janelaexclusao" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h4 class="text-white">Excluir Funcionário</h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
